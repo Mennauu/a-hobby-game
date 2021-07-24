@@ -11,7 +11,7 @@ class PlayerControls {
       moveRightState: new MoveRightState(player, keyboardInput),
       moveUpState: new MoveUpState(player, keyboardInput),
       moveDownState: new MoveDownState(player, keyboardInput),
-      idleState: new IdleState(player, keyboardInput),
+      idleState: new IdleState(player),
     }
   }
 

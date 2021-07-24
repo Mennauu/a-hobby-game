@@ -1,7 +1,6 @@
 class IdleState {
-  constructor(player, keyboardInput) {
+  constructor(player) {
     this.player = player
-    this.keyboardInput = keyboardInput
   }
 
   enter() {

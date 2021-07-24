@@ -1,12 +1,11 @@
 import Phaser from 'phaser'
-import Preload from './scenes/preload'
 import Game from './scenes/game'
 
 const config = {
   type: Phaser.AUTO,
   width: 1280,
   height: 720,
-  scene: [Preload, Game],
+  scene: [Game],
   physics: {
     default: 'arcade',
     arcade: {

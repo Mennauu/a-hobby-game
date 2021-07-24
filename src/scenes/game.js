@@ -1,25 +1,28 @@
-import PlayerControls from '../components/player/controls/playerControls'
-import PlayerSettings from '../components/player/settings/playerSettings'
-import PlayerUpdate from '../components/player/update/playerUpdate'
+import Player from '@components/player'
+import spritesheets from '@data/spritesheets'
 
 class Game extends Phaser.Scene {
   constructor() {
-    super('game')
+    super()
 
-    this.keyboardInput = {}
     this.player = {}
-    this.playerControls = {}
+    this.keyboardInput = {}
   }
 
   init() {
     this.setKeyBoard()
   }
 
-  create() {
-    this.player = this.physics.add.sprite(0, 0, 'player')
+  preload() {
+    this.preloadSpritesheets()
+  }
 
-    new PlayerSettings(this.player, this.cameras)
-    new PlayerControls(this.player, this.keyboardInput)
+  create() {
+    this.player = new Player(this)
+  }
+
+  update() {
+    this.player.update()
   }
 
   setKeyBoard() {
@@ -27,8 +30,13 @@ class Game extends Phaser.Scene {
     this.keyboardInput.Z = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z)
   }
 
-  update() {
-    new PlayerUpdate(this.player, this.keyboardInput)
+  preloadSpritesheets() {
+    spritesheets.forEach(spritesheet => {
+      this.load.spritesheet(spritesheet.name, spritesheet.sprite, {
+        frameWidth: spritesheet.frameWidth,
+        frameHeight: spritesheet.frameHeight,
+      })
+    })
   }
 }
 

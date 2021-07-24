@@ -1,10 +1,10 @@
 import PlayerControls from '../controls/playerControls'
 
 class PlayerUpdate {
-  constructor(player, keyboard) {
+  constructor(player, keyboard, controls) {
     this.player = player
     this.keyboardInput = keyboard
-    this.playerControls = new PlayerControls(player, keyboard)
+    this.playerControls = controls
 
     this.update()
   }
