@@ -1,25 +1,53 @@
-import MoveLeftState from '../movement/moveLeftState'
-import MoveRightState from '../movement/moveRightState'
-import MoveUpState from '../movement/moveUpState'
-import MoveDownState from '../movement/moveDownState'
-import IdleState from '../movement/idleState'
-
 class PlayerControls {
   constructor(player, keyboardInput) {
-    this.states = {
-      moveLeftState: new MoveLeftState(player, keyboardInput),
-      moveRightState: new MoveRightState(player, keyboardInput),
-      moveUpState: new MoveUpState(player, keyboardInput),
-      moveDownState: new MoveDownState(player, keyboardInput),
-      idleState: new IdleState(player),
-    }
+    this.player = player
+    this.keyboardInput = keyboardInput
   }
 
-  setState(name) {
-    if (this.currentState === this.states[name]) return
+  moveUp() {
+    if (this.keyboardInput.Z.isDown) {
+      this.player.setVelocityY(-this.player.runSpeed)
+    } else {
+      this.player.setVelocityY(-this.player.walkSpeed)
+    }
 
-    this.currentState = this.states[name]
-    this.currentState.enter()
+    this.player.anims.play('up', true)
+  }
+
+  moveRight() {
+    if (this.keyboardInput.Z.isDown) {
+      this.player.setVelocityX(this.player.runSpeed)
+    } else {
+      this.player.setVelocityX(this.player.walkSpeed)
+    }
+
+    this.player.anims.play('right', true)
+  }
+
+  moveDown() {
+    if (this.keyboardInput.Z.isDown) {
+      this.player.setVelocityY(this.player.runSpeed)
+    } else {
+      this.player.setVelocityY(this.player.walkSpeed)
+    }
+
+    this.player.anims.play('down', true)
+  }
+
+  moveLeft() {
+    if (this.keyboardInput.Z.isDown) {
+      this.player.setVelocityX(-this.player.runSpeed)
+    } else {
+      this.player.setVelocityX(-this.player.walkSpeed)
+    }
+
+    this.player.anims.play('left', true)
+  }
+
+  idle() {
+    if (this.player.latestMoveState) {
+      this.player.anims.play(this.player.latestMoveState)
+    }
   }
 }
 

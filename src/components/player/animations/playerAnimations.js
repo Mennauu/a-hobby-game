@@ -9,36 +9,54 @@ class PlayerAnimations {
 
   setAnimations() {
     this.anims.create({
-      key: 'left',
+      key: 'down',
       frames: this.anims.generateFrameNumbers(PLAYER_SPRITE_NAME, { start: 0, end: 3 }),
       frameRate: 10,
       repeat: -1,
     })
 
     this.anims.create({
-      key: 'right',
-      frames: this.anims.generateFrameNumbers(PLAYER_SPRITE_NAME, { start: 5, end: 8 }),
+      key: 'down-idle',
+      frames: [{ key: PLAYER_SPRITE_NAME, frame: 0 }],
+      frameRate: 20,
+    })
+
+    this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers(PLAYER_SPRITE_NAME, { start: 4, end: 7 }),
       frameRate: 10,
       repeat: -1,
+    })
+
+    this.anims.create({
+      key: 'left-idle',
+      frames: [{ key: PLAYER_SPRITE_NAME, frame: 4 }],
+      frameRate: 20,
+    })
+
+    this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers(PLAYER_SPRITE_NAME, { start: 8, end: 11 }),
+      frameRate: 10,
+      repeat: -1,
+    })
+
+    this.anims.create({
+      key: 'right-idle',
+      frames: [{ key: PLAYER_SPRITE_NAME, frame: 8 }],
+      frameRate: 20,
     })
 
     this.anims.create({
       key: 'up',
-      frames: [{ key: PLAYER_SPRITE_NAME, frame: 4 }],
+      frames: this.anims.generateFrameNumbers(PLAYER_SPRITE_NAME, { start: 12, end: 15 }),
       frameRate: 10,
       repeat: -1,
     })
 
     this.anims.create({
-      key: 'down',
-      frames: [{ key: PLAYER_SPRITE_NAME, frame: 4 }],
-      frameRate: 10,
-      repeat: -1,
-    })
-
-    this.anims.create({
-      key: 'idle',
-      frames: [{ key: PLAYER_SPRITE_NAME, frame: 4 }],
+      key: 'up-idle',
+      frames: [{ key: PLAYER_SPRITE_NAME, frame: 12 }],
       frameRate: 20,
     })
   }

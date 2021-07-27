@@ -1,5 +1,3 @@
-import PlayerControls from '../controls/playerControls'
-
 class PlayerUpdate {
   constructor(player, keyboard, controls) {
     this.player = player
@@ -14,23 +12,26 @@ class PlayerUpdate {
 
     switch (true) {
       case this.keyboardInput.left.isDown:
-        this.playerControls.setState('moveLeftState')
+        this.playerControls.moveLeft()
 
         break
       case this.keyboardInput.right.isDown:
-        this.playerControls.setState('moveRightState')
+        this.playerControls.moveRight()
 
         break
       case this.keyboardInput.up.isDown:
-        this.playerControls.setState('moveUpState')
+        this.playerControls.moveUp()
 
         break
       case this.keyboardInput.down.isDown:
-        this.playerControls.setState('moveDownState')
+        this.playerControls.moveDown()
 
         break
       default:
-        this.playerControls.setState('idleState')
+        this.player.latestMoveState = this.player.anims.currentAnim
+          ? this.player.anims.currentAnim.key
+          : null
+        this.playerControls.idle()
     }
   }
 }

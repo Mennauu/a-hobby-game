@@ -2,8 +2,8 @@ const spritesheets = [
   {
     name: 'player',
     sprite: require('../assets/player.png'),
-    frameWidth: 32,
-    frameHeight: 48,
+    frameWidth: 64,
+    frameHeight: 64,
   },
 ]
 

@@ -1,11 +1,11 @@
-import PlayerAnimations from './animations/playerAnimations'
-import PlayerUpdate from './update/playerUpdate'
-import PlayerSettings from './settings/playerSettings'
-import PlayerControls from './controls/playerControls'
+import PlayerAnimations from '@components/player/animations/playerAnimations'
+import PlayerUpdate from '@components/player/update/playerUpdate'
+import PlayerSettings from '@components/player/settings/playerSettings'
+import PlayerControls from '@components/player/controls/playerControls'
 
 class Player {
   constructor(phaser) {
-    this.player = phaser.physics.add.sprite(0, 0, 'player')
+    this.player = phaser.physics.add.sprite(250, 250, 'player')
     this.anims = phaser.anims
     this.cameras = phaser.cameras
     this.keyboardInput = phaser.keyboardInput
